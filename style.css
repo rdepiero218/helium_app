@@ -1,0 +1,160 @@
+/* set global variables */
+:root {
+    --color:  #81DAF5;
+    --title_color: #2ecc71;
+    --section_color:#3498db;
+    --subsection_color: #f1c40f;
+    --background_color: #181818;
+    --input_background: #555555;
+    --expander_text: #e67e22;
+    --table_background: #acacac;
+    --max_width: 500;
+    --padding_top: 10;
+    --padding_right: 10;
+    --padding_left: 10;
+    --padding_bottom: 10;
+    /* White: #ffffff
+    Off-White: #ecf0f1
+    Dark Grey (background): #1a1a1a
+    Light Grey: #555555
+    Medium Light Grey: #2a2a2a
+    Medium Dark Grey: #222222
+    Green: #2ecc71
+    Aqua: #1abc9c
+    Red: #e74c3c
+    Blue: #3498db
+    Yellow: #f1c40f
+    Orange-Red: #e67e22
+    Periwinkle: #6c71c4 */
+  }
+
+body {
+    color: var(--color);
+    /* background-color: var(--background_color) */
+    /* color: #fff;
+    background-color:#181818; */
+}
+
+h1 {
+    color: var(--title_color);
+    /* background-color:var(--background_color); */
+    font-weight : bold;
+    margin-top: 0;
+    margin-bottom: 0; 
+}
+
+h2 {
+    color: var(--section_color);
+    background-color:var(--background_color);
+    font-weight : bold;
+    margin-top: 0;
+    margin-bottom: 0; 
+}
+
+h3 {
+    color: var(--subsection_color);
+    background-color:var(--background_color);
+}
+
+h4 {
+    color: var(--color);
+    background-color:var(--background_color);
+    font-weight : bold;
+    font-size: 300%;
+    /* border: 2px solid powderblue; */
+}
+hr { 
+    margin-top: 0px; 
+    margin-bottom: 0px 
+}
+
+/* .header{
+    font-weight: bold;
+} */
+
+/* p {
+    color: green;
+    background-color: yellow;
+} */
+
+/* change width of app on page */
+/* .reportview-container .main .block-container{
+    max-width: var(--max_width)px;
+    padding: 20 px;
+    padding-top: var(--padding_top)rem;
+    padding-right: var(--padding_right)rem;
+    padding-left: var(--padding_left)rem;
+    padding-bottom: var(--padding_bottom)rem;
+    border: 1px solid var(--color);
+}  */
+
+/* change color and background of entire app*/
+.reportview-container .main {
+    color: var(--color);
+    background-color: var(--background_color);
+}
+
+.stButton>button {
+    color: black; /* text color #000000*/
+    /* background-color: var(--section_color); */
+    border-radius: 12px;  /*changes from circle button to rectangle */
+    /* height: 10em;
+    width: 10em; */
+}
+
+.stTextInput>div>div>input {
+    color: var(--background_color);
+    background-color: var(--input_background);
+}
+.stTextInput>label {
+    color: var(--color);
+    /* background-color: yellow; */
+}
+
+.stNumberInput>label {
+    color: var(--color);
+    /* background-color: yellow; */
+}
+
+/* change color and background of text */
+.stCheckbox>label>div{
+    color: var(--color);
+}
+
+/* change color and background of text */
+.stTable>table {
+    color: var(--color);
+    background-color: var(--table_background);
+    text-align: left;
+}
+
+/* change color and background of text */
+.stRadio>label {
+    color: white;
+}
+
+.stRadio>div>label>div {
+    color: white;
+}
+/* color of text in expander */
+.streamlit-expanderHeader {
+    color: var(--expander_text);
+    font-size: 20px;
+
+}
+
+.streamlit-expanderContent{
+    color: #ecf0f1;
+
+}
+/* color of expander symbol */
+.streamlit-expanderHeader>svg>path {
+    stroke: var(--color);
+
+}
+.stMarkdown>p{
+    color: var(--color);
+}
+
+
+
