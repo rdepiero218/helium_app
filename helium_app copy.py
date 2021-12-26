@@ -3,8 +3,13 @@ import numpy as np
 import pandas as pd
 import requests
 
+import plotly.express as px
+import plotly.graph_objects as go
+
+
 
 st.set_page_config(page_title="Jason's Helium Empire", page_icon="💰", layout='wide')
+
 
 def local_css(file_name):
     with open(file_name) as f:
@@ -78,7 +83,7 @@ with col3:
     for hotspot in hotspots.keys():
         coins = get_total_rewards(hotspots[hotspot], start_date, end_date)
         wallet.append(coins)
-        print('%s earned %0.2f helium coins'%(hotspot, coins))
+        # print('%s earned %0.2f helium coins'%(hotspot, coins))
 
     data['Coins'] = wallet
 
@@ -146,4 +151,22 @@ with col1:
 with col2:
     st.metric('USD', total_earned)
 
+c = st.container()
+with c:
+    st.header('Testing Tables with Plotly')
 
+    # fig = go.Figure(data=go.Table(header, cells))
+    fig = go.Figure(data=[go.Table(
+    header=dict(values=['A Scores', 'B Scores'],
+                line_color='darkslategray',
+                fill_color='lightskyblue',
+                align='left'),
+    cells=dict(values=[[100, 90, 80, 90], # 1st column
+                       [95, 85, 75, 95]], # 2nd column
+               line_color='darkslategray',
+               fill_color='lightcyan',
+               align='left'))
+    ])
+
+    fig.update_layout(width=500, height=300)
+    st.write(fig)
