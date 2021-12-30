@@ -5,21 +5,21 @@ import requests
 
 import helium_fcns as h
 
-import plotly.express as px
-import plotly.graph_objects as go
+# import plotly.express as px
+# import plotly.graph_objects as go
 
 st.set_page_config(page_title="Jason's Helium Empire", page_icon="💰", layout='wide')
 
 
-def local_css(file_name):
-    with open(file_name) as f:
-        st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
+# def local_css(file_name):
+#     with open(file_name) as f:
+#         st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 
-def display_url(url, link_text):
-    link = f'[{link_text}]({url})'
-    st.markdown(link, unsafe_allow_html=True) 
+# def display_url(url, link_text):
+#     link = f'[{link_text}]({url})'
+#     st.markdown(link, unsafe_allow_html=True) 
 
-local_css("style.css")
+# local_css("style.css")
 
 
 ###-------------------------------------
