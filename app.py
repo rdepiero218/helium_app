@@ -2,6 +2,7 @@ import streamlit as st
 import numpy as np
 import pandas as pd
 import requests
+import datetime
 
 import helium_fcns as h
 
@@ -41,10 +42,22 @@ df = h.get_account_hotspot_data()
 st.header('Enter Dates 📆')
 ###--------------------
 ### ENTER START AND END DATES
-start_date = st.text_input('Enter a start date in YYYY-MM-DD format', '2021-12-01')
-# st.write('You entered the start date', start_date)
-end_date = st.text_input('Enter an end date in YYYY-MM-DD format', '2021-12-24')
-# st.write('You entered the end date', end_date)
+# start_date = st.text_input('Enter a start date in YYYY-MM-DD format', '2021-12-01')
+s_date = st.date_input(
+     'Enter a start date',
+     datetime.date(2022, 1, 1))
+start_date = s_date.strftime('%Y-%m-%d')
+
+
+# st.write('Your birthday is:', d)
+
+st.write('You entered the start date', start_date)
+# end_date = st.text_input('Enter an end date in YYYY-MM-DD format', '2021-12-24')
+e_date = st.date_input(
+     'Enter a start date',
+     datetime.date(2022, 1, 2))
+end_date = e_date.strftime('%Y-%m-%d')
+st.write('You entered the end date', end_date)
 
 ### GET COINS
 df['Coins'] = h.get_coins(df,start_date, end_date)
@@ -89,26 +102,31 @@ ytd_USD = ytd_coins * HNT
 # with col2:
 #     st.metric('USD', round(ytd_USD,2))
 
-col1, col2 = st.columns(2)
-with col1:
-    st.header('Total Earnings 💰')
-    st.metric('HNT', total_coins)
-    st.metric('USD', total_earned)
-with col2:
-    st.header('YTD Earnings 💰')
-    st.metric('HNT', round(ytd_coins,4))    
-    st.metric('USD', round(ytd_USD,2))
-
-
+### FIND MAX EARNER FOR PERIOD
 max_idx = dfc['Amount'].idxmax()
 top_earner = dfc.at[2,'Owner']
 st.subheader('The top earner for this period was %s 🎉'%(top_earner))
+
+col1, col2 = st.columns(2)
+with col1:
+    st.header('Total Earnings this Period 💰')
+    # st.write('For ', start_date, ' to ', end_date)
+    st.metric('HNT', total_coins)
+    st.metric('USD', total_earned)
+with col2:
+    st.header('Total YTD Earnings 💰')
+    st.metric('HNT', round(ytd_coins,4))    
+    st.metric('USD', round(ytd_USD,2))
+
+st.subheader('Current Helium price per coin: $ %0.2f'%(HNT))
+
+
 
 
 ###--------------------
 st.header('Current Status ⏱')
 ###--------------------
-st.table(dfc[['Owner', 'name', 'online','reward_scale', 'gain', 'elevation']])
+st.table(dfc[['Owner', 'name', 'online','reward_scale','timestamp_added', 'gain', 'elevation']])
 # c = st.container()
 # with c:
 #     st.header('Testing Tables with Plotly')
