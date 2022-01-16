@@ -116,7 +116,7 @@ with col1:
     st.metric('HNT', total_coins)
     st.metric('USD', total_earned)
 with col2:
-    st.header('Total YTD Earnings 💰')
+    st.header('Total Earnings 💰')
     st.write('November 10, 2021 to %s'%(print_today))
     st.metric('HNT', round(ytd_coins,4))    
     st.metric('USD', round(ytd_USD,2))
