@@ -7,10 +7,12 @@ from dateutil import tz
 
 address = '13Mbr1vbV5s7X1quVzFMpi8yZQ9a4PXwqFBYaD9zaPRSEDgaKmq'
 names = {
-    'mean-cotton-pike':'Silvia', 
-    'little-mandarin-tortoise':'Reggie', 
-    'faithful-mulberry-hawk':'Jared',
-    'brisk-bone-beetle':'Jason'}
+    'brisk-bone-beetle':'J1',
+    'faithful-mulberry-hawk':'J2',
+    'little-mandarin-tortoise':'RD',
+    'mean-cotton-pike':'SG',
+    'main-plastic-mammoth': 'JM'
+}
 
 # ## Dates for testing
 # start_date = '2021-12-01'
